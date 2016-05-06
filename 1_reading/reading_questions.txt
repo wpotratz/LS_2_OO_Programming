@@ -1,0 +1,94 @@
+### The Object Model ###
+1. How do we create an object in Ruby? Give an example of the creation of an object.
+
+  - by calling the 'new' method from the class name (the class object)
+  
+    class People
+    end
+    
+    an_instance_of_people = People.new
+
+
+2. What is a module? What is its purpose? How do we use them with our classes? Create a module for the class you created in exercise 1 and include it properly.
+
+  - A module is an set of methods, or functionality, which can be added to a class, thus making the module's functionality available to any instance of the class it was added to.
+  
+    module CanTalk
+      def talk(words)
+        puts "#{words}"
+      end
+    end
+    
+    class People
+      include CanTalk
+    end
+    
+    new_person = People.new
+    new_person.talk "Hi, I'm a person."
+
+
+### Classes and Objects - Part I ###
+
+1. Create a class called MyCar. When you initialize a new instance or object of the class, allow the user to define some instance variables that tell us the year, color, and model of the car. Create an instance variable that is set to 0 during instantiation of the object to track the current speed of the car as well. Create instance methods that allow the car to speed up, brake, and shut the car off.
+
+  class MyCar
+    attr_accessor :color, :current_speed
+    attr_reader :year, :model
+    
+    def initialize(year, color, model)
+      @year = year.to_i
+      @color = color
+      @model = model
+      @current_speed = 0
+    end
+    
+    def speed_up(amount)
+      self.current_speed += amount.to_i
+      puts "Your car sped up to #{current_speed}."
+    end
+    
+    def slow_down(amount)
+      self.current_speed -= amount.to_i
+      puts "Your car slowed down to #{current_speed}."
+    end
+    
+    def turn_off
+      self.current_speed = 0
+      puts "Your car has been shut down."
+    end
+    
+    def spray_paint(new_color)
+      self.color = new_color
+      puts "You painted your #{model} #{color}!"
+    end
+  
+  
+  ### Inheritance ###
+  
+    def car_info
+      car_drive_status = if current_speed == 0
+                           "stopped"
+                         else
+                           "driving at #{current_speed} mph"
+                         end
+                         
+      "Your #{color} #{year} #{model} is #{car_drive_status}."
+    end
+  end
+
+
+### Classes and Objects - Part II ###
+
+In the following...
+
+  class Person
+    attr_reader :name
+    def initialize(name)
+      @name = name
+    end
+  end
+  
+  bob = Person.new("Steve")
+  bob.name = "Bob"
+
+>> We get an error because no setter method has been defined; only a reader method. Change attr_reader to attr_accessor to make this work. @name could then be changed to self.name as well.
