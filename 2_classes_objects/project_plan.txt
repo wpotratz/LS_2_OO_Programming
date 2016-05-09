@@ -1,0 +1,19 @@
+## oo_rps.rb project plan
+
+In RPS, a single `player` "player" will play against another single `player`  "computer". Each `player` will make a `move` to choose between the following available choices [rock, paper, scissors], and "player" and "computer's" cooresponding choices will be `compared` to determine the `winner`, based on the following `rule`: rock beats scissors, scissors beats paper, paper beats rock, and if the choices are the same, it's a tie. The result will be displayed.
+
+Nouns: rps, player, computer, move, rule
+Verbs: choose, compare
+
+Organize verbs with nouns:
+  Player: choose(Move)
+  Move(@choice)
+          - rock, paper, scissors
+  RPS: compare
+    - 2 instances of Player
+      - Each player has instance of Move
+    - Compare Move instance of each player
+    - win_state
+    - Display result
+  
+Pseudo:
