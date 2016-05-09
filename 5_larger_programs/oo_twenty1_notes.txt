@@ -1,0 +1,45 @@
+oo_twenty1_notes.txt
+
+1. Write a description of the problem and extract major nouns and verbs.
+    Twenty1 is a game including at least two players, of which one is the dealer (just using a single human player and computer dealer for this iteration). Each player is attempting to get cards adding the closest to 21 without going over.
+    Game summary:
+    - Each player starts with two cards from one or more decks of 52 playing cards. The dealer has one card hidden and one card showing. All other players have both cards showing.
+    - If the non-dealer player has cards adding up to 21, that player immediately wins.
+    - If the player has not won, they may choose to hit or stay, receiving an additional card face up for each hit, until they bust (go over 21), hit blackjack (21), or choose to stay.
+    - Once all of the non-dealer players have won, busted or chosen to stay, and there is at least on player that has chosen to stay, the dealer will show their hidden card.
+    - The dealer will continue taking more cards until they have reached 17, hit blackjack or busted.
+    - The winner is the highest hand at or under 21. If the dealer ties with any player, it's a push and the bet is returned to the player.
+
+2. Make an initial guess at organizing the verbs into nouns and do a spike to explore the problem with temporary code.
+
+  Nouns:
+  - player
+    - dealer || player
+    - computer || human
+  - deck
+    - cards
+  - game
+  Verbs:
+  - deal
+  - hit
+  - stay
+  - win
+  - bust
+  
+  >>>>>>>>>>>>>>>>>>>>
+  - player
+    - computer || human
+    - hand
+      >> win
+      >> bust
+    >> hit
+    >> stay
+    - dealer
+      >> deal
+    - player#
+  - deck
+    - cards
+  - game
+
+
+3. Optional - when you have a better idea of the problem, model your thoughts into CRC cards.
